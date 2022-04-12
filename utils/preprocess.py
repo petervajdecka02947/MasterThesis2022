@@ -1,29 +1,13 @@
-from io import StringIO
-from html.parser import HTMLParser
-import re
+from utils.scraping import *
+from tqdm import tqdm
+from sentence_splitter import SentenceSplitter
 
-class MLStripper(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.reset()
-        self.strict = True
-        self.convert_charrefs= True
-        self.text = StringIO()
-    def handle_data(self, d):
-        self.text.write(d)
-    def get_data(self):
-        return self.text.getvalue()
-
-def strip_tags(html):
-    s = MLStripper()
-    s.feed(html)
-    return s.get_data()
+pd.set_option('max_rows', 99999)
+pd.set_option('max_colwidth', 400)
+pd.describe_option('max_colwidth')
 
 def preprocess_explanation(text):
-    #result_type = ["true","mostly-true","half-true","barely-true","false","pants-fire",
-    #               "mostly true", "mostly false", "half true","half false","barely true", "barely false",
-    #               "pants on fire", "pants fire","misleading","truth","evidence","wrong","incorrect","correct","fake","absurd",
-    #"ridiculous","ridiculously","mistake","inaccurate","exaggerates","claim"]
+    
     with open("forbidden_words.txt") as f:
             result_type = [line.strip() for line in f]
      
