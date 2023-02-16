@@ -196,7 +196,7 @@ urllib3==1.26.7
 wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1600965781394/work
 webencodings==0.5.1
 websocket-client @ file:///tmp/build/80754af9/websocket-client_1614803975924/work
-Werkzeug==2.0.2
+Werkzeug==2.2.3
 widgetsnbextension @ file:///tmp/build/80754af9/widgetsnbextension_1607531506226/work
 wrapt==1.13.3
 yarl @ file:///home/conda/feedstock_root/build_artifacts/yarl_1636046810561/work
